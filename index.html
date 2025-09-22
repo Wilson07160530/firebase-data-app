@@ -27,7 +27,7 @@
       <button id="saveBtn">Save</button>
     </div>
     <ul id="dataList"></ul>
-    <div id="empty" style="text-align:center;color:#777;display:none;">Walang naka-save na data.</div>
+    <div id="empty" style="text-align:center;color:#777;display:none;">No Saved Data.</div>
   </main>
 
   <script type="module">
@@ -55,14 +55,14 @@
     const dataListEl = document.getElementById("dataList");
     const emptyEl = document.getElementById("empty");
 
-    // ✅ Trigger save on Enter key
+    
     dataInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         saveBtn.click();
       }
     });
 
-    // Save data (value = key)
+    
     saveBtn.addEventListener("click", async () => {
       const value = dataInput.value.trim();
       if (!value) return alert("⚠️ Please enter data");
@@ -106,7 +106,7 @@
       });
     }
 
-    // Listen for changes
+    
     onValue(listRef, (snap) => {
       const data = snap.val() || {};
       renderList(data);
